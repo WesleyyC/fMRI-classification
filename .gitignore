@@ -1,3 +1,7 @@
+#PyCharm
+.idea/*.xml
+
+
 # data
 data/
 
