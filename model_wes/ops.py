@@ -13,6 +13,18 @@ def conv3d(input_, output_channels, stride, filter_depth, filter_height, filter_
         return tf.nn.bias_add(conv, b)
 
 
+def conv2d(input_, output_channels, stride, filter_depth, filter_height, layer_no, padding="SAME"):
+    with tf.variable_scope('conv2d_layer_' + str(layer_no)):
+        w = tf.get_variable('w', [filter_depth, filter_height, input_.shape[-1], output_channels],
+                            dtype=tf.float32,
+                            initializer=tf.truncated_normal_initializer(stddev=0.02))
+        b = tf.get_variable('b', [output_channels], dtype=tf.float32, initializer=tf.constant_initializer(0.0))
+
+        conv = tf.nn.conv2d(input_, w, [1, stride, stride, 1], padding=padding)
+
+        return tf.nn.bias_add(conv, b)
+
+
 def conv3d_res_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filter_height, filter_width, layer_no):
     with tf.variable_scope('conv_block_' + str(layer_no)):
         conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, 1)
@@ -35,7 +47,7 @@ def conv3d_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filt
 def dense_block(X_, output_channel, layer_no):
     with tf.variable_scope('dense_block_' + str(layer_no)):
         X_dim = X_.get_shape().as_list()
-        reshape = tf.reshape(X_, [-1,
-                                  X_dim[1] * X_dim[2] *
-                                  X_dim[3] * X_dim[4]])
+        X_dim[0] = 1
+        X_dim = reduce(lambda x, y: x * y, X_dim)
+        reshape = tf.reshape(X_, [-1, X_dim])
         return tf.layers.dense(reshape, output_channel)
