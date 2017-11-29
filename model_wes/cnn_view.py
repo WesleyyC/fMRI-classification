@@ -54,6 +54,16 @@ conv_layer_1 = ops.conv2d(X_batch, kernel_size, stride, filter_depth, filter_hei
 pool_layer_1 = tf.nn.max_pool(conv_layer_1, [1, pool_size, pool_size, 1],
                               [1, pool_stride, pool_stride, 1], padding="VALID")
 
+# kernel_size = 8
+# stride = 1
+# filter_depth = 5
+# filter_height = 5
+# pool_size = 2
+# pool_stride = pool_size
+# conv_layer_2 = ops.conv2d(conv_layer_1, kernel_size, stride, filter_depth, filter_height, 2)
+# pool_layer_2 = tf.nn.max_pool(conv_layer_2, [1, pool_size, pool_size, 1],
+#                                 [1, pool_stride, pool_stride, 1], padding="VALID")
+
 dense_1 = ops.dense_block(pool_layer_1, label_size, 1)
 
 logits = dense_1
