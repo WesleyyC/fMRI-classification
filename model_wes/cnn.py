@@ -6,6 +6,11 @@ from sklearn.utils import shuffle
 
 import ops
 
+
+# Mode
+
+infer_only = True
+
 # Load data
 train_X = np.load('../data/train_X.npy')
 train_Y = np.load('../data/train_binary_Y.npy')
@@ -40,7 +45,7 @@ Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
 
-kernel_size = 16
+kernel_size = 8
 stride = 1
 filter_depth = 3
 filter_height = 3
@@ -90,53 +95,54 @@ saver = tf.train.Saver()
 sess.run(tf.global_variables_initializer())
 
 epochs = 300
-batch_size = 16
+batch_size = 32
 report_step = 1000
 saved_mdl_name = 'result.mdl'
 
 best_subset_accuracy = 0
 
-for epoch in range(epochs):
+if not infer_only:
+    for epoch in range(epochs):
 
-    train_X, train_Y = shuffle(train_X, train_Y)
+        train_X, train_Y = shuffle(train_X, train_Y)
 
-    i = 0
-    i_report = report_step
-    while i < len(train_X):
-        i_end = min(i + batch_size, len(train_X))
-        report_Y_prediction, _ = sess.run([Y_prediction, update_step],
-                                          feed_dict={
-                                              X_batch: train_X[i:i_end],
-                                              Y_batch: train_Y[i:i_end],
-                                              training_flag: True})
-        if i > i_report:
-            auc = roc_auc_score(train_Y[i:i_end], report_Y_prediction, average='micro')
-            subset_accuracy = accuracy_score(train_Y[i:i_end], report_Y_prediction)
-            print(str.format("Epoch %d train auc is %f and subset accuracy is %f"
-                             % (epoch, auc, subset_accuracy)))
-            i_report += report_step
-        i = i_end
+        i = 0
+        i_report = report_step
+        while i < len(train_X):
+            i_end = min(i + batch_size, len(train_X))
+            report_Y_prediction, _ = sess.run([Y_prediction, update_step],
+                                              feed_dict={
+                                                  X_batch: train_X[i:i_end],
+                                                  Y_batch: train_Y[i:i_end],
+                                                  training_flag: True})
+            if i > i_report:
+                auc = roc_auc_score(train_Y[i:i_end], report_Y_prediction, average='micro')
+                subset_accuracy = accuracy_score(train_Y[i:i_end], report_Y_prediction)
+                print(str.format("Epoch %d train auc is %f and subset accuracy is %f"
+                                 % (epoch, auc, subset_accuracy)))
+                i_report += report_step
+            i = i_end
 
-    i = 0
-    auc_list = []
-    subset_accuracy_list = []
-    while i < len(test_X):
-        i_end = min(i + batch_size, len(test_X))
-        report_Y_prediction = sess.run(Y_prediction,
-                                       feed_dict={
-                                           X_batch: test_X[i:i_end],
-                                           training_flag: False})
-        auc_list.append(roc_auc_score(test_Y[i:i_end], report_Y_prediction, average='micro'))
-        subset_accuracy_list.append(accuracy_score(test_Y[i:i_end], report_Y_prediction))
-        i = i_end
-    print(str.format("Epoch %d test  auc is %f and subset accuracy is %f"
-                     % (epoch, float(np.mean(auc_list)), float(np.mean(subset_accuracy_list)))))
-    if np.mean(subset_accuracy_list) > best_subset_accuracy:
-        saver.save(sess, saved_mdl_name)
-        best_subset_accuracy = np.mean(subset_accuracy_list)
-        print("Updated best model."
-              "")
-    print("***************************************************************")
+        i = 0
+        auc_list = []
+        subset_accuracy_list = []
+        while i < len(test_X):
+            i_end = min(i + batch_size, len(test_X))
+            report_Y_prediction = sess.run(Y_prediction,
+                                           feed_dict={
+                                               X_batch: test_X[i:i_end],
+                                               training_flag: False})
+            auc_list.append(roc_auc_score(test_Y[i:i_end], report_Y_prediction, average='micro'))
+            subset_accuracy_list.append(accuracy_score(test_Y[i:i_end], report_Y_prediction))
+            i = i_end
+        print(str.format("Epoch %d test  auc is %f and subset accuracy is %f"
+                         % (epoch, float(np.mean(auc_list)), float(np.mean(subset_accuracy_list)))))
+        if np.mean(subset_accuracy_list) > best_subset_accuracy:
+            saver.save(sess, saved_mdl_name)
+            best_subset_accuracy = np.mean(subset_accuracy_list)
+            print("Updated best model."
+                  "")
+        print("***************************************************************")
 
 # Generate Validation Data
 

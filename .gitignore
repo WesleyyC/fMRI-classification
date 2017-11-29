@@ -1,9 +1,10 @@
 #PyCharm
 .idea/*.xml
 
-
 # data
 data/
+*.npy
+*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
