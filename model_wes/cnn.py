@@ -18,27 +18,19 @@ train_X = train_X[:, :, :, :, np.newaxis]
 train_X, train_Y = shuffle(train_X, train_Y)
 sample_number = len(train_X)
 
-test_fraction = 0.2
+test_fraction = 0.1
 test_range = int(test_fraction * sample_number)
 test_X = train_X[:test_range]
 train_X = train_X[test_range:]
 test_Y = train_Y[:test_range]
 train_Y = train_Y[test_range:]
 
-# Build NN Graph
+# Model Parameter
 
 label_size = 19
+learning_rate = 0.001
 
-kernel_size = 3
-stride = 1
-filter_depth = 3
-filter_height = 3
-filter_width = 3
-
-pool_size = 2
-pool_stride = pool_size
-
-learning_rate = 0.01
+# Build NN Graph
 
 tf.reset_default_graph()
 sess = tf.InteractiveSession()
@@ -47,16 +39,28 @@ X_batch = tf.placeholder(shape=(None, 26, 31, 23, 1), dtype=tf.float32, name='X_
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
-conv_1 = ops.conv3d(X_batch, kernel_size, stride, filter_depth, filter_height, filter_width)
-pool_1 = tf.nn.max_pool3d(conv_1, [1, pool_size, pool_size, pool_size, 1],
-                          [1, pool_stride, pool_stride, pool_stride, 1], padding="SAME")
 
-dense_1_reshape_dim = pool_1.get_shape().as_list()
-dense_1_reshape = tf.reshape(pool_1, [-1,
-                                      dense_1_reshape_dim[1] * dense_1_reshape_dim[2] *
-                                      dense_1_reshape_dim[3] *dense_1_reshape_dim[4]])
+kernel_size = 16
+stride = 1
+filter_depth = 3
+filter_height = 3
+filter_width = 3
+pool_size = 3
+pool_stride = pool_size
+conv_layer_1 = ops.conv_pool_block(X_batch, kernel_size, stride, filter_depth, filter_height, filter_width, pool_size,
+                                   pool_stride, 1)
 
-dense_1 = tf.layers.dense(dense_1_reshape, label_size)
+# kernel_size = 16
+# stride = 1
+# filter_depth = 2
+# filter_height = 2
+# filter_width = 2
+# pool_size = 2
+# pool_stride = pool_size
+# conv_layer_2 = ops.conv_pool_block(conv_layer_1, kernel_size, stride, filter_depth, filter_height, filter_width,
+#                                    pool_size, pool_stride, 2)
+
+dense_1 = ops.dense_block(conv_layer_1, label_size, 1)
 
 logits = dense_1
 
@@ -75,16 +79,22 @@ loss = tf.reduce_mean(cross_entropy)
 params = tf.trainable_variables()
 gradients = tf.gradients(loss, params)
 
-optimizer = tf.train.GradientDescentOptimizer(learning_rate)
+optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 update_step = optimizer.apply_gradients(zip(gradients, params))
+
+# Model Persistence
+saver = tf.train.Saver()
 
 # Training
 
-epochs = 100
+sess.run(tf.global_variables_initializer())
+
+epochs = 300
 batch_size = 16
 report_step = 1000
+saved_mdl_name = 'result.mdl'
 
-sess.run(tf.global_variables_initializer())
+best_subset_accuracy = 0
 
 for epoch in range(epochs):
 
@@ -121,7 +131,12 @@ for epoch in range(epochs):
         i = i_end
     print(str.format("Epoch %d test  auc is %f and subset accuracy is %f"
                      % (epoch, float(np.mean(auc_list)), float(np.mean(subset_accuracy_list)))))
-    print("****************************************************************")
+    if np.mean(subset_accuracy_list) > best_subset_accuracy:
+        saver.save(sess, saved_mdl_name)
+        best_subset_accuracy = np.mean(subset_accuracy_list)
+        print("Updated best model."
+              "")
+    print("***************************************************************")
 
 # Generate Validation Data
 
@@ -129,6 +144,8 @@ print("Generating Validation Submission...")
 
 valid_test_X = np.load('../data/valid_test_X.npy')
 valid_test_Y = np.zeros([len(valid_test_X), 19])
+
+saver.restore(sess, saved_mdl_name)
 
 i = 0
 while i < len(valid_test_X):
