@@ -44,8 +44,8 @@ def conv3d_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filt
     return relu1
 
 
-def dense_block(X_, output_channel, layer_no):
-    with tf.variable_scope('dense_block_' + str(layer_no)):
+def dense_block(X_, output_channel, regularizer, layer_no):
+    with tf.variable_scope('dense_block_' + str(layer_no), regularizer=regularizer):
         X_dim = X_.get_shape().as_list()
         X_dim[0] = 1
         X_dim = reduce(lambda x, y: x * y, X_dim)

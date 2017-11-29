@@ -36,7 +36,7 @@ train_Y = train_Y[test_range:]
 
 label_size = 19
 learning_rate = 0.001
-regularizer_scale = 0.5
+regularizer_scale = 0.05
 
 # Build NN Graph
 
@@ -47,33 +47,35 @@ X_batch = tf.placeholder(shape=(None, 26, 31, 23, 1), dtype=tf.float32, name='X_
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
-regularizer = tf.contrib.layers.l2_regularizer(scale=regularizer_scale)
+regularizer = tf.contrib.layers.l1_regularizer(scale=regularizer_scale)
 
-kernel_size = 8
+kernel_size = 32
 stride = 1
-filter_depth = 3
-filter_height = 3
-filter_width = 3
-pool_size = 3
+filter_depth = 5
+filter_height = 5
+filter_width = 5
+pool_size = 2
 pool_stride = pool_size
 conv_layer_1 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
                                 filter_width, regularizer, 1)
 pool_layer_1 = tf.nn.max_pool3d(conv_layer_1, [1, pool_size, pool_size, pool_size, 1],
                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
-kernel_size = 8
+kernel_size = 32
 stride = 1
-filter_depth = 3
-filter_height = 3
-filter_width = 3
-pool_size = 3
+filter_depth = 5
+filter_height = 5
+filter_width = 5
+pool_size = 2
 pool_stride = pool_size
 conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
                                 filter_width, regularizer, 2)
 pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
-dense_1 = ops.dense_block(pool_layer_2, label_size, 1)
+dense_1 = ops.dense_block(pool_layer_2, label_size, regularizer, 1)
+
+# dense_2 = ops.dense_block(dense_1, label_size, regularizer, 2)
 
 logits = dense_1
 
@@ -113,6 +115,7 @@ saved_mdl_name = 'result.mdl'
 best_subset_accuracy = 0
 
 if not infer_only:
+
     for epoch in range(epochs):
 
         train_X, train_Y = shuffle(train_X, train_Y)
