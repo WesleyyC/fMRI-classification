@@ -17,7 +17,7 @@ train_Y = np.load('../data/train_binary_Y.npy')
 
 # Process data
 
-# train_X = utils.normalized_data(train_X)
+train_X = utils.normalized_data(train_X)
 
 # Shuffle and divide two train/test
 train_X, train_Y = shuffle(train_X, train_Y)

@@ -36,6 +36,7 @@ train_Y = train_Y[test_range:]
 
 label_size = 19
 learning_rate = 0.001
+regularizer_scale = 0.5
 
 # Build NN Graph
 
@@ -46,6 +47,8 @@ X_batch = tf.placeholder(shape=(None, 26, 31, 23, 1), dtype=tf.float32, name='X_
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
+regularizer = tf.contrib.layers.l2_regularizer(scale=regularizer_scale)
+
 kernel_size = 8
 stride = 1
 filter_depth = 3
@@ -54,7 +57,7 @@ filter_width = 3
 pool_size = 3
 pool_stride = pool_size
 conv_layer_1 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, 1)
+                                filter_width, regularizer, 1)
 pool_layer_1 = tf.nn.max_pool3d(conv_layer_1, [1, pool_size, pool_size, pool_size, 1],
                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
@@ -66,7 +69,7 @@ filter_width = 3
 pool_size = 3
 pool_stride = pool_size
 conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, 2)
+                                filter_width, regularizer, 2)
 pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
@@ -80,9 +83,12 @@ Y_prediction = tf.round(tf.nn.sigmoid(logits))
 
 # Training Loss
 
-cross_entropy = tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_batch, logits=logits)
+cross_entropy = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_batch, logits=logits))
 
-loss = tf.reduce_mean(cross_entropy)
+reg_variables = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
+reg_term = tf.contrib.layers.apply_regularization(regularizer, reg_variables)
+
+loss = cross_entropy + reg_term
 
 # Gradient
 

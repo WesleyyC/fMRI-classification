@@ -1,8 +1,8 @@
 import tensorflow as tf
 
 
-def conv3d(input_, output_channels, stride, filter_depth, filter_height, filter_width, layer_no, padding="SAME"):
-    with tf.variable_scope('conv3d_layer_' + str(layer_no)):
+def conv3d(input_, output_channels, stride, filter_depth, filter_height, filter_width, regularizer, layer_no, padding="SAME"):
+    with tf.variable_scope('conv3d_layer_' + str(layer_no), regularizer=regularizer):
         w = tf.get_variable('w', [filter_depth, filter_height, filter_width, input_.shape[-1], output_channels],
                             dtype=tf.float32,
                             initializer=tf.truncated_normal_initializer(stddev=0.02))
@@ -37,9 +37,9 @@ def conv3d_res_block(X_, training_flag, kernel_size, conv_stride, filter_depth, 
     return res
 
 
-def conv3d_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filter_height, filter_width, layer_no):
+def conv3d_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filter_height, filter_width, regularizer, layer_no):
     with tf.variable_scope('conv_block_' + str(layer_no)):
-        conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, 1)
+        conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, regularizer, 1)
         relu1 = tf.nn.relu(conv1)
     return relu1
 
