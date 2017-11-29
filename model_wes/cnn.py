@@ -5,17 +5,19 @@ from sklearn.metrics import roc_auc_score
 from sklearn.utils import shuffle
 
 import ops
-
+import utils
 
 # Mode
 
-infer_only = True
+infer_only = False
 
 # Load data
 train_X = np.load('../data/train_X.npy')
 train_Y = np.load('../data/train_binary_Y.npy')
 
 # Process data
+
+train_X = utils.normalized_data(train_X)
 
 train_X = train_X[:, :, :, :, np.newaxis]
 
@@ -44,6 +46,17 @@ X_batch = tf.placeholder(shape=(None, 26, 31, 23, 1), dtype=tf.float32, name='X_
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
+kernel_size = 8
+stride = 1
+filter_depth = 3
+filter_height = 3
+filter_width = 3
+pool_size = 3
+pool_stride = pool_size
+conv_layer_1 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, 1)
+pool_layer_1 = tf.nn.max_pool3d(conv_layer_1, [1, pool_size, pool_size, pool_size, 1],
+                                [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
 kernel_size = 8
 stride = 1
@@ -52,20 +65,12 @@ filter_height = 3
 filter_width = 3
 pool_size = 3
 pool_stride = pool_size
-conv_layer_1 = ops.conv_pool_block(X_batch, kernel_size, stride, filter_depth, filter_height, filter_width, pool_size,
-                                   pool_stride, 1)
+conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, 2)
+pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
+                                [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
-# kernel_size = 16
-# stride = 1
-# filter_depth = 2
-# filter_height = 2
-# filter_width = 2
-# pool_size = 2
-# pool_stride = pool_size
-# conv_layer_2 = ops.conv_pool_block(conv_layer_1, kernel_size, stride, filter_depth, filter_height, filter_width,
-#                                    pool_size, pool_stride, 2)
-
-dense_1 = ops.dense_block(conv_layer_1, label_size, 1)
+dense_1 = ops.dense_block(pool_layer_2, label_size, 1)
 
 logits = dense_1
 
@@ -142,7 +147,7 @@ if not infer_only:
             best_subset_accuracy = np.mean(subset_accuracy_list)
             print("Updated best model."
                   "")
-        print("***************************************************************")
+        print("**************************************************************")
 
 # Generate Validation Data
 
