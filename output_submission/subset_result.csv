@@ -1,0 +1,1972 @@
+id,tags
+0,calculation auditory
+1,calculation auditory
+2,language human_sound auditory
+3,human_sound auditory
+4,language auditory
+5,calculation auditory
+6,objects visual
+7,right_hand visual
+8,visual_words visual
+9,left_foot visual
+10,language human_sound auditory
+11,left_hand objects visual
+12,calculation auditory
+13,vertical_checkerboard visual
+14,auditory
+15,visual_words visual
+16,visual_digits visual_words visual
+17,places visual
+18,auditory
+19,vertical_checkerboard visual
+20,language auditory
+21,language human_sound auditory
+22,left_foot visual
+23,visual
+24,left_hand auditory
+25,faces visual
+26,faces right_hand visual
+27,left_hand visual_words visual
+28,
+29,vertical_checkerboard objects visual
+30,visual
+31,right_hand visual_words visual
+32,visual
+33,calculation auditory
+34,visual_words visual
+35,faces right_hand visual
+36,language human_sound auditory
+37,calculation auditory
+38,objects visual
+39,right_hand visual
+40,visual_words visual
+41,horizontal_checkerboard visual
+42,calculation visual_words visual
+43,language auditory
+44,faces visual
+45,objects right_hand visual_words visual
+46,faces visual
+47,calculation visual_words visual
+48,visual saccades
+49,right_hand auditory
+50,visual
+51,language human_sound auditory
+52,left_hand visual_words visual
+53,calculation auditory
+54,language visual_words visual
+55,horizontal_checkerboard visual
+56,language auditory
+57,left_hand visual_words visual
+58,objects right_hand visual
+59,right_hand visual
+60,right_hand auditory
+61,visual
+62,visual
+63,non_human_sound auditory
+64,language visual_words visual
+65,right_hand visual
+66,language right_hand
+67,visual_words visual
+68,objects visual_words visual
+69,right_hand visual_words visual
+70,objects right_hand visual
+71,language visual
+72,language visual_words visual
+73,horizontal_checkerboard visual
+74,calculation right_hand auditory
+75,visual_words visual
+76,visual_digits calculation visual
+77,objects visual non_human_sound auditory
+78,language visual_words visual
+79,left_hand auditory
+80,language right_hand visual_words visual
+81,faces visual
+82,visual
+83,calculation visual_words visual
+84,right_hand visual
+85,language horizontal_checkerboard vertical_checkerboard visual
+86,language visual_words visual
+87,right_hand visual_words visual
+88,calculation auditory
+89,horizontal_checkerboard visual
+90,visual
+91,auditory
+92,objects scramble visual
+93,language visual_words visual
+94,visual
+95,horizontal_checkerboard visual
+96,visual_words visual non_human_sound auditory
+97,left_foot left_hand visual
+98,right_hand auditory
+99,calculation human_sound auditory
+100,language right_hand visual_words visual
+101,faces language visual
+102,language visual_words visual
+103,visual
+104,visual
+105,language right_hand visual_words visual
+106,right_hand visual
+107,visual
+108,visual
+109,language human_sound auditory
+110,objects visual
+111,left_hand visual_words visual
+112,calculation auditory
+113,auditory
+114,calculation visual_words visual
+115,objects right_hand visual
+116,objects places visual
+117,objects visual
+118,language right_hand visual_words visual
+119,right_hand non_human_sound auditory
+120,objects right_hand visual
+121,right_hand visual_words visual
+122,objects visual
+123,visual_digits calculation visual_words visual
+124,left_foot visual
+125,calculation auditory
+126,objects visual
+127,language auditory
+128,language visual_words visual
+129,objects right_hand visual
+130,language auditory
+131,left_hand visual
+132,auditory
+133,calculation visual_words visual
+134,language visual_words visual
+135,right_foot visual
+136,visual_words visual
+137,left_hand visual_words visual
+138,right_hand auditory
+139,visual
+140,right_hand visual
+141,non_human_sound auditory
+142,visual_words visual
+143,visual
+144,right_hand visual
+145,language human_sound auditory
+146,faces right_hand visual
+147,left_hand visual_words visual
+148,right_hand visual auditory
+149,visual_digits visual_words visual
+150,non_human_sound auditory
+151,vertical_checkerboard visual
+152,language human_sound auditory
+153,language right_hand visual
+154,visual
+155,visual auditory
+156,calculation right_hand auditory
+157,visual_words visual
+158,auditory
+159,language human_sound auditory
+160,language visual_words visual
+161,language right_hand auditory
+162,scramble visual
+163,right_hand auditory
+164,horizontal_checkerboard visual
+165,visual
+166,left_foot right_foot visual
+167,vertical_checkerboard visual_words visual
+168,left_foot visual non_human_sound
+169,language human_sound auditory
+170,left_hand auditory
+171,visual_digits visual
+172,right_hand visual_words visual
+173,objects visual_words visual
+174,calculation visual_words visual
+175,language visual_words visual
+176,right_hand visual
+177,language human_sound right_hand auditory
+178,left_hand visual_words visual
+179,visual_words visual
+180,language right_hand visual_words visual
+181,calculation visual
+182,calculation
+183,objects visual
+184,language right_hand auditory
+185,horizontal_checkerboard visual
+186,calculation visual_words visual
+187,language human_sound auditory
+188,right_hand visual
+189,language visual_words visual
+190,non_human_sound auditory
+191,objects visual
+192,right_hand visual_words visual
+193,visual_digits calculation visual
+194,visual_words visual non_human_sound auditory
+195,objects visual
+196,language right_hand visual_words visual
+197,visual_digits visual
+198,left_hand auditory
+199,calculation language visual_words visual
+200,faces right_hand visual
+201,calculation
+202,calculation visual_words visual
+203,left_hand auditory
+204,visual_words visual
+205,language right_hand visual_words auditory
+206,language human_sound right_hand auditory
+207,language visual_words visual
+208,visual_words visual
+209,visual_words visual
+210,objects visual
+211,right_hand visual
+212,places visual
+213,visual_digits calculation visual
+214,visual
+215,objects visual non_human_sound auditory
+216,vertical_checkerboard visual
+217,auditory
+218,left_hand auditory
+219,right_hand visual
+220,objects right_hand visual
+221,language visual_words visual
+222,human_sound auditory
+223,left_foot right_hand right_foot visual
+224,places visual
+225,visual
+226,right_hand visual_words visual
+227,visual saccades
+228,visual
+229,right_hand visual
+230,language human_sound auditory
+231,visual
+232,visual
+233,non_human_sound auditory
+234,visual_words visual
+235,objects visual
+236,language right_hand auditory
+237,visual_words visual
+238,visual
+239,right_hand visual_words visual
+240,visual_words visual
+241,left_hand auditory
+242,visual
+243,vertical_checkerboard visual
+244,auditory
+245,objects visual
+246,right_hand visual
+247,visual_digits visual
+248,non_human_sound auditory
+249,language visual_words visual
+250,visual
+251,right_hand visual
+252,horizontal_checkerboard visual
+253,faces right_hand visual
+254,non_human_sound auditory
+255,right_hand visual_words visual
+256,objects visual
+257,left_hand auditory
+258,visual
+259,language human_sound right_hand auditory
+260,calculation visual_words visual
+261,visual
+262,visual
+263,non_human_sound auditory
+264,language visual_words visual
+265,left_hand visual_words visual
+266,language visual_words visual
+267,faces visual
+268,language auditory
+269,visual
+270,right_hand visual
+271,visual_words visual
+272,language auditory
+273,objects right_hand visual
+274,non_human_sound auditory
+275,objects visual_words visual non_human_sound
+276,left_hand visual_words visual
+277,right_hand visual_words visual
+278,visual
+279,right_hand visual_words visual
+280,language auditory
+281,scramble visual
+282,horizontal_checkerboard visual
+283,visual
+284,places right_hand visual
+285,auditory
+286,right_hand visual_words visual
+287,language right_hand visual_words visual
+288,visual_words visual
+289,left_hand visual_words visual
+290,objects visual
+291,visual_digits calculation visual
+292,calculation auditory
+293,objects
+294,auditory
+295,objects visual
+296,language visual
+297,left_hand objects visual
+298,visual
+299,right_hand visual
+300,language visual_words visual
+301,left_hand visual
+302,objects visual non_human_sound auditory
+303,visual
+304,left_hand visual_words visual
+305,vertical_checkerboard visual
+306,calculation auditory
+307,visual
+308,auditory
+309,objects right_hand visual_words visual
+310,language right_hand visual_words visual
+311,language right_hand visual_words visual
+312,horizontal_checkerboard visual
+313,language human_sound right_hand auditory
+314,non_human_sound auditory
+315,right_hand visual_words visual
+316,calculation visual_words visual
+317,faces visual_words visual
+318,right_hand visual_words visual
+319,language visual_words visual
+320,faces visual
+321,visual
+322,left_hand auditory
+323,horizontal_checkerboard visual
+324,right_hand visual
+325,horizontal_checkerboard visual
+326,visual
+327,right_hand visual_words visual
+328,calculation visual_words visual
+329,visual_words visual
+330,language visual
+331,language auditory
+332,left_hand auditory
+333,faces visual
+334,visual_digits right_hand visual
+335,auditory
+336,visual
+337,visual_digits objects visual
+338,right_hand visual
+339,left_foot visual
+340,language visual_words visual
+341,visual
+342,calculation language auditory
+343,language visual
+344,left_hand visual_words visual
+345,right_hand auditory
+346,visual
+347,horizontal_checkerboard vertical_checkerboard visual
+348,objects visual
+349,visual_words visual
+350,right_hand visual_words visual
+351,calculation auditory
+352,visual
+353,objects visual
+354,objects right_hand visual
+355,vertical_checkerboard visual
+356,language human_sound right_hand auditory
+357,visual_digits visual
+358,language visual_words visual
+359,calculation visual_words visual
+360,non_human_sound auditory
+361,left_hand visual_words visual
+362,calculation visual_words visual
+363,right_hand visual
+364,calculation visual
+365,non_human_sound auditory
+366,language visual_words visual
+367,visual non_human_sound
+368,places right_hand visual
+369,visual saccades
+370,language objects visual
+371,language auditory
+372,right_hand visual
+373,visual
+374,objects visual
+375,language visual_words visual
+376,right_hand visual
+377,non_human_sound auditory
+378,visual
+379,language auditory
+380,language visual_words visual
+381,right_hand visual
+382,objects visual
+383,language auditory
+384,visual_words visual
+385,language right_hand auditory
+386,calculation visual_words visual
+387,language visual_words visual
+388,calculation auditory
+389,right_hand visual
+390,language human_sound auditory
+391,visual
+392,visual
+393,calculation visual
+394,vertical_checkerboard visual
+395,visual
+396,visual_words visual
+397,vertical_checkerboard visual
+398,calculation auditory
+399,right_hand auditory
+400,faces right_hand visual
+401,objects visual
+402,auditory
+403,visual_digits left_hand calculation visual
+404,visual_words visual
+405,language visual_words visual
+406,calculation auditory
+407,right_hand auditory
+408,objects visual
+409,language right_hand visual_words visual
+410,visual
+411,right_hand visual_words visual
+412,visual_digits visual
+413,places visual
+414,language visual_words visual
+415,non_human_sound auditory
+416,objects visual_words visual
+417,calculation auditory
+418,visual_words visual
+419,visual
+420,places right_hand visual
+421,visual_words visual
+422,right_hand visual auditory
+423,left_hand visual_words visual
+424,vertical_checkerboard visual
+425,visual
+426,language right_hand visual_words visual
+427,faces visual
+428,horizontal_checkerboard visual
+429,non_human_sound auditory
+430,language visual_words visual
+431,visual_words visual
+432,language visual_words visual
+433,language human_sound auditory
+434,visual
+435,left_hand visual
+436,left_foot right_foot visual
+437,visual_words visual
+438,objects visual
+439,objects right_hand visual
+440,human_sound right_hand visual auditory
+441,left_hand visual_words visual
+442,horizontal_checkerboard objects visual
+443,objects visual
+444,right_hand auditory
+445,visual_digits visual saccades
+446,language visual_words visual
+447,calculation auditory
+448,language visual_words visual
+449,right_hand visual_words visual
+450,scramble visual
+451,non_human_sound auditory
+452,language visual_words visual
+453,objects right_hand visual
+454,language human_sound auditory
+455,right_hand visual
+456,right_hand visual
+457,right_hand visual
+458,language visual
+459,left_hand visual
+460,vertical_checkerboard visual
+461,places visual
+462,visual
+463,language human_sound auditory
+464,language visual_words visual
+465,right_hand visual_words visual
+466,language auditory
+467,visual_digits visual_words visual
+468,language right_hand visual_words visual
+469,calculation visual
+470,language visual
+471,language visual_words visual
+472,right_hand auditory
+473,visual_words visual
+474,visual
+475,right_foot visual
+476,language human_sound auditory
+477,visual_words visual
+478,non_human_sound auditory
+479,left_hand auditory
+480,language auditory
+481,faces visual
+482,visual
+483,visual_words visual
+484,visual
+485,language auditory
+486,visual
+487,language visual_words visual
+488,right_hand visual
+489,language visual_words visual
+490,language right_hand visual_words visual
+491,right_hand visual
+492,auditory
+493,human_sound auditory
+494,visual saccades
+495,left_hand visual
+496,faces visual
+497,calculation language right_hand auditory
+498,calculation visual_words visual
+499,objects right_hand visual
+500,objects right_hand visual
+501,language human_sound auditory
+502,objects visual
+503,language visual_words visual
+504,visual_words visual
+505,objects right_hand visual
+506,calculation auditory
+507,language visual_words visual
+508,faces visual
+509,visual_words visual
+510,horizontal_checkerboard visual
+511,left_hand visual_words visual
+512,language visual_words visual
+513,vertical_checkerboard visual
+514,visual non_human_sound auditory
+515,language visual_words visual
+516,visual
+517,non_human_sound auditory
+518,right_hand visual_words visual
+519,language auditory
+520,calculation non_human_sound auditory
+521,right_hand visual_words visual
+522,visual
+523,language auditory
+524,language objects visual
+525,objects visual
+526,non_human_sound auditory
+527,visual
+528,language visual_words visual
+529,objects right_hand visual
+530,left_hand vertical_checkerboard visual_words visual
+531,objects right_hand visual
+532,left_hand visual
+533,calculation auditory
+534,auditory
+535,right_hand visual
+536,right_hand visual_words visual
+537,vertical_checkerboard visual
+538,language human_sound auditory
+539,places visual
+540,visual
+541,language right_hand visual_words auditory
+542,calculation visual_words visual
+543,objects right_hand visual_words visual
+544,left_hand visual_words visual
+545,visual
+546,language visual_words visual
+547,calculation auditory
+548,right_hand visual
+549,language non_human_sound auditory
+550,objects right_hand visual_words visual
+551,right_hand visual_words visual
+552,left_hand auditory
+553,right_hand visual_words visual
+554,left_foot visual
+555,auditory
+556,right_hand visual_words visual
+557,right_hand visual
+558,language human_sound auditory
+559,visual_digits calculation visual_words visual
+560,language right_hand auditory
+561,places visual
+562,objects places right_hand visual
+563,visual_digits visual
+564,objects visual
+565,right_hand visual_words auditory
+566,objects visual
+567,visual_words visual
+568,left_hand objects visual
+569,right_hand visual
+570,visual
+571,language human_sound auditory
+572,right_hand visual_words visual
+573,right_hand visual
+574,objects right_hand visual
+575,left_hand auditory
+576,right_hand visual
+577,faces visual_words visual
+578,visual non_human_sound
+579,calculation visual_words visual
+580,visual_words auditory
+581,right_hand visual_words visual
+582,faces right_hand visual
+583,visual saccades
+584,objects visual non_human_sound auditory
+585,visual
+586,right_hand visual_words visual
+587,language visual_words visual
+588,visual
+589,left_hand auditory
+590,visual_words visual
+591,visual
+592,language human_sound auditory
+593,calculation visual
+594,right_hand visual
+595,language human_sound non_human_sound auditory
+596,visual saccades
+597,left_hand auditory
+598,left_foot visual
+599,faces right_hand visual
+600,language visual_words visual
+601,language visual_words visual
+602,right_hand visual
+603,visual
+604,language human_sound auditory
+605,language right_hand visual_words visual
+606,non_human_sound auditory
+607,language visual_words visual
+608,right_hand visual
+609,left_hand visual_words visual
+610,left_hand auditory
+611,visual_words visual
+612,right_hand visual
+613,visual
+614,objects visual non_human_sound auditory
+615,non_human_sound auditory
+616,left_hand visual
+617,language auditory
+618,right_hand visual
+619,visual non_human_sound
+620,visual_digits calculation visual
+621,objects visual auditory
+622,right_foot visual
+623,language visual_words visual
+624,non_human_sound auditory
+625,left_foot objects visual
+626,vertical_checkerboard visual
+627,auditory
+628,right_hand visual
+629,right_hand visual_words visual
+630,language visual_words visual
+631,visual
+632,auditory
+633,right_hand auditory
+634,language visual_words visual
+635,scramble visual
+636,right_hand visual
+637,human_sound auditory
+638,language right_hand visual_words visual
+639,visual_digits visual
+640,visual
+641,language auditory
+642,language visual_words visual
+643,visual_words visual
+644,faces scramble visual
+645,left_hand visual
+646,visual
+647,visual
+648,left_hand visual_words visual
+649,objects right_hand visual
+650,visual
+651,visual
+652,right_hand visual_words visual
+653,left_hand visual_words visual
+654,places scramble visual
+655,right_hand auditory
+656,vertical_checkerboard visual
+657,visual auditory
+658,objects visual
+659,left_foot visual
+660,visual
+661,left_foot left_hand visual
+662,left_foot visual saccades
+663,right_hand right_foot visual
+664,calculation auditory
+665,calculation visual
+666,visual_digits visual
+667,calculation non_human_sound auditory
+668,visual_digits calculation visual
+669,visual saccades
+670,calculation auditory
+671,visual
+672,vertical_checkerboard objects visual
+673,visual_words visual
+674,horizontal_checkerboard visual saccades
+675,language human_sound auditory
+676,visual
+677,objects right_hand visual
+678,visual
+679,visual
+680,language human_sound auditory
+681,language human_sound auditory
+682,calculation right_hand auditory
+683,horizontal_checkerboard visual
+684,faces visual
+685,language auditory
+686,calculation language auditory
+687,horizontal_checkerboard visual
+688,calculation language auditory
+689,human_sound
+690,places visual
+691,places right_hand visual
+692,vertical_checkerboard visual
+693,objects visual non_human_sound auditory
+694,language auditory
+695,visual non_human_sound auditory
+696,visual_words visual
+697,visual
+698,visual auditory
+699,objects visual
+700,calculation visual auditory
+701,language human_sound auditory
+702,visual
+703,visual_digits visual saccades
+704,language right_hand visual_words auditory
+705,visual_words visual
+706,visual
+707,language visual
+708,language auditory
+709,right_hand visual
+710,vertical_checkerboard visual
+711,right_hand
+712,faces visual
+713,horizontal_checkerboard visual
+714,calculation visual_words visual
+715,visual saccades
+716,visual_digits calculation visual
+717,visual_words visual
+718,visual_words visual
+719,calculation auditory
+720,faces visual
+721,objects visual saccades
+722,faces objects right_hand visual
+723,visual_words visual
+724,left_foot visual
+725,objects visual
+726,faces right_hand visual
+727,places visual_words visual
+728,visual
+729,language visual_words visual
+730,visual
+731,visual
+732,visual
+733,visual_words visual auditory
+734,objects visual
+735,language human_sound right_hand auditory
+736,calculation visual_words visual
+737,right_hand visual
+738,horizontal_checkerboard visual
+739,vertical_checkerboard visual
+740,visual
+741,language human_sound auditory
+742,human_sound auditory
+743,horizontal_checkerboard visual
+744,faces visual
+745,right_hand visual
+746,language visual_words visual
+747,vertical_checkerboard objects visual
+748,language auditory
+749,vertical_checkerboard visual
+750,language auditory
+751,objects places right_hand visual
+752,visual
+753,visual
+754,calculation auditory
+755,vertical_checkerboard visual
+756,calculation auditory
+757,language visual_words visual
+758,calculation auditory
+759,visual_digits calculation visual
+760,language non_human_sound auditory
+761,visual
+762,objects visual_words visual
+763,language human_sound auditory
+764,language right_hand visual_words visual
+765,left_hand non_human_sound auditory
+766,language human_sound auditory
+767,left_hand auditory
+768,language visual_words visual
+769,visual_digits visual
+770,visual
+771,visual
+772,objects visual
+773,language visual_words visual
+774,calculation visual_words visual
+775,right_hand visual_words visual
+776,right_foot visual
+777,right_hand auditory
+778,non_human_sound auditory
+779,left_hand auditory
+780,left_hand auditory
+781,left_hand visual_words visual
+782,visual_words visual
+783,right_hand auditory
+784,calculation visual_words visual
+785,vertical_checkerboard visual
+786,objects right_hand visual
+787,right_hand auditory
+788,faces visual
+789,left_hand visual_words visual
+790,non_human_sound auditory
+791,visual_words visual
+792,right_hand right_foot visual
+793,language human_sound auditory
+794,language right_hand visual_words visual
+795,visual_words visual
+796,faces visual
+797,visual
+798,visual_words visual auditory
+799,non_human_sound auditory
+800,right_foot visual
+801,visual
+802,right_hand visual
+803,left_hand objects visual
+804,right_hand right_foot visual
+805,language auditory
+806,visual_digits visual
+807,right_hand visual
+808,language visual_words visual
+809,calculation visual_words visual
+810,language objects visual
+811,language right_hand visual_words visual
+812,visual
+813,language auditory
+814,visual
+815,visual
+816,language right_hand visual_words visual
+817,faces visual_words visual
+818,right_hand visual
+819,right_hand auditory
+820,left_hand auditory
+821,right_hand visual
+822,right_hand visual
+823,left_hand visual
+824,visual
+825,visual_words visual
+826,visual
+827,vertical_checkerboard visual
+828,language visual_words visual
+829,visual
+830,calculation visual_words non_human_sound auditory
+831,right_hand visual
+832,visual non_human_sound
+833,left_hand vertical_checkerboard visual_words visual
+834,language human_sound auditory
+835,right_hand visual_words visual
+836,horizontal_checkerboard visual_words visual
+837,language visual
+838,visual_digits objects visual
+839,objects visual non_human_sound
+840,language right_hand visual_words visual
+841,objects right_hand visual
+842,language human_sound auditory
+843,objects visual
+844,objects right_hand visual
+845,calculation objects visual
+846,visual
+847,non_human_sound auditory
+848,visual
+849,language right_hand visual_words visual
+850,visual_digits calculation visual_words visual
+851,visual saccades
+852,language auditory
+853,objects right_hand visual
+854,human_sound non_human_sound auditory
+855,language right_hand visual_words visual
+856,right_hand auditory
+857,visual non_human_sound
+858,visual
+859,calculation visual_words visual
+860,visual_words visual
+861,visual_words visual
+862,objects visual
+863,faces objects right_hand visual
+864,faces visual
+865,objects right_hand visual_words visual
+866,language visual_words visual
+867,language visual_words visual
+868,left_hand auditory
+869,visual
+870,
+871,objects right_hand visual
+872,faces scramble visual
+873,places right_hand visual
+874,visual_words visual
+875,calculation auditory
+876,visual
+877,objects visual
+878,visual
+879,language human_sound right_hand auditory
+880,objects places visual
+881,language visual_words visual
+882,human_sound non_human_sound auditory
+883,left_foot visual
+884,visual
+885,visual non_human_sound auditory
+886,right_hand visual
+887,objects scramble visual
+888,calculation human_sound auditory
+889,objects visual
+890,objects visual_words visual
+891,objects right_hand visual
+892,right_hand visual
+893,visual
+894,left_hand auditory
+895,right_hand visual_words visual
+896,language human_sound right_hand auditory
+897,left_foot visual
+898,left_foot visual
+899,faces visual
+900,visual_digits calculation visual
+901,left_hand auditory
+902,faces scramble visual
+903,language visual_words visual
+904,visual_words visual
+905,language visual
+906,objects right_hand visual
+907,places right_hand visual
+908,calculation objects right_hand auditory
+909,non_human_sound auditory
+910,right_foot visual
+911,auditory
+912,calculation auditory
+913,language visual_words visual
+914,visual non_human_sound auditory
+915,right_hand auditory
+916,language auditory
+917,language objects
+918,visual
+919,non_human_sound auditory
+920,left_hand visual_words visual
+921,faces visual
+922,visual_words visual
+923,faces visual
+924,right_hand visual
+925,vertical_checkerboard scramble visual
+926,left_hand auditory
+927,calculation objects visual_words visual
+928,objects visual_words visual
+929,horizontal_checkerboard visual
+930,right_hand auditory
+931,visual_words visual
+932,places visual
+933,right_hand visual
+934,calculation visual_words visual
+935,visual
+936,visual
+937,horizontal_checkerboard visual
+938,auditory
+939,non_human_sound auditory
+940,right_hand visual
+941,objects right_hand visual
+942,language visual_words visual
+943,right_hand visual_words visual
+944,visual non_human_sound auditory
+945,left_hand auditory
+946,horizontal_checkerboard visual
+947,language auditory
+948,vertical_checkerboard visual
+949,visual_words visual
+950,language visual_words visual
+951,visual
+952,language right_hand auditory
+953,non_human_sound auditory
+954,left_hand objects visual
+955,right_hand visual
+956,calculation right_hand auditory
+957,language visual saccades
+958,human_sound visual
+959,left_hand visual
+960,visual_words visual
+961,calculation objects visual
+962,language auditory
+963,visual
+964,auditory
+965,right_hand visual_words visual
+966,auditory
+967,right_hand visual
+968,visual_digits calculation visual
+969,language right_hand visual_words visual
+970,language auditory
+971,right_hand visual
+972,language right_hand visual_words visual
+973,visual
+974,visual
+975,right_hand visual_words visual
+976,left_hand visual_words visual
+977,visual
+978,left_foot right_foot visual
+979,vertical_checkerboard visual
+980,calculation visual
+981,left_foot visual
+982,auditory
+983,visual_words visual
+984,left_foot right_foot visual
+985,left_hand visual
+986,language human_sound auditory
+987,auditory
+988,calculation visual
+989,visual_digits right_hand visual
+990,language auditory
+991,right_hand visual_words visual
+992,visual_words visual
+993,horizontal_checkerboard objects visual
+994,left_hand visual
+995,vertical_checkerboard visual
+996,
+997,objects visual
+998,language human_sound auditory
+999,visual
+1000,faces scramble visual
+1001,horizontal_checkerboard visual
+1002,left_hand scramble visual
+1003,language visual_words visual
+1004,language right_hand visual_words visual
+1005,visual_digits calculation
+1006,right_hand visual_words visual
+1007,language visual_words visual
+1008,objects right_hand visual
+1009,language auditory
+1010,visual
+1011,
+1012,places visual
+1013,language visual_words visual
+1014,left_hand right_hand auditory
+1015,calculation auditory
+1016,left_hand visual_words visual
+1017,right_hand visual
+1018,right_hand visual
+1019,language visual_words visual
+1020,language visual_words visual
+1021,language human_sound auditory
+1022,left_hand visual_words visual
+1023,language visual_words visual
+1024,objects right_hand visual
+1025,language human_sound auditory
+1026,right_hand visual_words visual
+1027,horizontal_checkerboard visual_words visual
+1028,language horizontal_checkerboard visual_words visual
+1029,auditory
+1030,visual
+1031,language visual_words visual
+1032,scramble visual_words visual
+1033,language right_hand visual_words visual
+1034,visual
+1035,left_hand visual_words visual
+1036,calculation auditory
+1037,faces visual
+1038,auditory
+1039,faces visual
+1040,language right_hand visual_words visual
+1041,calculation visual_words visual
+1042,language human_sound auditory
+1043,objects visual_words visual non_human_sound auditory
+1044,right_hand visual
+1045,left_hand objects visual
+1046,left_hand visual
+1047,objects visual
+1048,visual_words visual
+1049,visual_words visual
+1050,language visual_words visual
+1051,right_hand auditory
+1052,visual_words visual
+1053,right_hand visual_words visual
+1054,right_hand visual_words visual
+1055,objects visual
+1056,calculation visual_words visual
+1057,calculation auditory
+1058,right_hand visual
+1059,places visual
+1060,language human_sound right_hand auditory
+1061,visual
+1062,visual
+1063,places visual
+1064,left_hand non_human_sound auditory
+1065,left_hand visual
+1066,language auditory
+1067,right_foot visual
+1068,left_hand objects scramble visual
+1069,language visual_words visual
+1070,visual
+1071,visual
+1072,calculation visual
+1073,faces right_hand visual
+1074,language human_sound auditory
+1075,right_hand auditory
+1076,horizontal_checkerboard visual
+1077,objects visual non_human_sound auditory
+1078,objects right_hand visual_words visual
+1079,language human_sound right_hand auditory
+1080,right_hand visual_words visual
+1081,objects visual
+1082,left_hand visual
+1083,calculation visual_words visual
+1084,left_foot right_hand right_foot visual
+1085,right_hand visual
+1086,visual
+1087,objects visual_words visual non_human_sound auditory
+1088,auditory
+1089,visual_words visual
+1090,language visual_words visual
+1091,left_hand auditory
+1092,objects right_hand visual_words visual
+1093,visual saccades
+1094,right_hand visual
+1095,language right_hand auditory
+1096,objects visual
+1097,right_hand visual_words visual
+1098,visual_words visual
+1099,visual
+1100,language human_sound right_hand auditory
+1101,calculation auditory
+1102,right_hand visual_words visual
+1103,right_hand visual_words visual
+1104,language auditory
+1105,vertical_checkerboard visual
+1106,language visual_words visual
+1107,objects visual_words visual
+1108,calculation auditory
+1109,visual_digits visual
+1110,horizontal_checkerboard visual
+1111,left_hand auditory
+1112,non_human_sound auditory
+1113,faces objects right_hand visual
+1114,auditory
+1115,visual
+1116,visual saccades
+1117,horizontal_checkerboard visual
+1118,left_hand visual_words visual
+1119,right_hand visual_words visual
+1120,objects right_hand visual
+1121,left_hand auditory
+1122,objects places right_hand visual
+1123,calculation auditory
+1124,language visual_words visual
+1125,language visual_words visual
+1126,objects visual non_human_sound auditory
+1127,calculation visual_words visual
+1128,calculation auditory
+1129,right_hand visual
+1130,language right_hand auditory
+1131,non_human_sound auditory
+1132,objects visual
+1133,language right_hand visual_words visual
+1134,visual
+1135,language visual
+1136,left_hand visual
+1137,left_hand visual_words visual
+1138,faces visual
+1139,visual
+1140,left_hand auditory
+1141,language visual
+1142,language right_hand visual_words visual
+1143,language objects visual_words visual non_human_sound auditory
+1144,visual saccades
+1145,language auditory
+1146,objects scramble visual
+1147,visual_digits objects visual
+1148,language visual_words visual
+1149,visual
+1150,right_hand visual_words visual
+1151,objects visual
+1152,visual_words visual
+1153,calculation auditory
+1154,right_hand visual_words visual
+1155,visual
+1156,right_foot visual
+1157,non_human_sound auditory
+1158,left_foot visual
+1159,language auditory
+1160,right_foot visual
+1161,objects visual
+1162,visual
+1163,visual_words visual
+1164,places right_hand visual
+1165,language visual_words visual
+1166,objects visual
+1167,calculation visual_words visual
+1168,right_foot visual
+1169,objects right_hand visual
+1170,calculation visual_words visual
+1171,right_hand visual
+1172,language visual_words visual
+1173,visual
+1174,language right_hand visual_words visual
+1175,objects visual
+1176,left_hand auditory
+1177,language human_sound auditory
+1178,objects right_hand visual
+1179,visual_words visual
+1180,right_hand visual
+1181,left_hand auditory
+1182,vertical_checkerboard visual
+1183,left_hand visual_words visual
+1184,right_hand visual
+1185,visual_digits calculation visual_words visual
+1186,language visual_words visual
+1187,calculation auditory
+1188,right_hand auditory
+1189,language right_hand visual_words visual
+1190,language visual_words visual
+1191,right_hand visual
+1192,right_hand visual
+1193,language human_sound auditory
+1194,calculation auditory
+1195,visual
+1196,visual saccades
+1197,calculation language right_hand
+1198,left_hand visual_words visual
+1199,left_hand auditory
+1200,language visual_words visual
+1201,calculation auditory
+1202,objects visual
+1203,objects visual
+1204,calculation right_hand auditory
+1205,language right_hand visual_words visual
+1206,language human_sound auditory
+1207,visual
+1208,left_hand visual_words visual
+1209,language visual_words visual
+1210,language visual_words visual
+1211,right_hand auditory
+1212,left_hand visual_words visual
+1213,auditory
+1214,left_hand auditory
+1215,visual_words visual
+1216,horizontal_checkerboard visual
+1217,calculation auditory
+1218,visual_digits calculation visual
+1219,language human_sound auditory
+1220,human_sound non_human_sound auditory
+1221,visual
+1222,language visual_words visual
+1223,right_hand visual_words visual
+1224,left_hand objects visual
+1225,objects visual
+1226,left_hand visual_words visual
+1227,calculation auditory
+1228,visual
+1229,visual
+1230,left_hand language auditory
+1231,faces right_hand visual
+1232,right_hand auditory
+1233,left_hand visual_words visual
+1234,visual_words visual
+1235,language right_hand visual_words visual
+1236,left_hand auditory
+1237,visual
+1238,objects visual non_human_sound
+1239,language human_sound auditory
+1240,vertical_checkerboard visual
+1241,visual
+1242,visual_digits visual
+1243,language auditory
+1244,visual
+1245,language visual_words visual
+1246,non_human_sound auditory
+1247,human_sound auditory
+1248,left_hand visual_words visual
+1249,right_hand visual
+1250,right_hand visual
+1251,places right_hand visual
+1252,language visual_words visual
+1253,right_hand visual
+1254,right_hand visual
+1255,calculation auditory
+1256,visual_digits visual_words visual
+1257,language human_sound right_hand auditory
+1258,right_hand visual_words visual
+1259,places right_hand visual
+1260,right_hand visual auditory
+1261,language visual_words visual
+1262,visual
+1263,visual saccades
+1264,objects right_hand visual
+1265,language visual_words visual
+1266,left_hand visual_words visual
+1267,visual
+1268,calculation auditory
+1269,auditory
+1270,language right_hand visual_words visual
+1271,left_hand visual_words visual
+1272,language visual_words visual
+1273,visual
+1274,calculation auditory
+1275,visual
+1276,faces right_hand visual
+1277,non_human_sound auditory
+1278,visual_digits visual
+1279,language auditory
+1280,left_hand visual_words visual
+1281,right_hand auditory
+1282,right_hand visual
+1283,human_sound auditory
+1284,objects visual
+1285,visual saccades
+1286,objects visual
+1287,faces right_hand visual
+1288,language visual_words visual
+1289,calculation visual_words visual
+1290,non_human_sound auditory
+1291,visual_words visual
+1292,visual
+1293,left_hand visual
+1294,visual
+1295,right_hand auditory
+1296,right_hand visual_words visual
+1297,non_human_sound auditory
+1298,left_hand auditory
+1299,language right_hand visual_words visual
+1300,left_hand calculation objects visual non_human_sound auditory
+1301,vertical_checkerboard visual_words visual
+1302,language visual_words visual
+1303,objects visual non_human_sound auditory
+1304,scramble visual
+1305,visual_words visual
+1306,visual
+1307,visual_words visual
+1308,objects visual saccades
+1309,language visual_words visual
+1310,objects visual non_human_sound auditory
+1311,horizontal_checkerboard visual
+1312,language visual_words visual
+1313,visual_digits visual
+1314,faces right_hand visual
+1315,language auditory
+1316,right_hand visual_words visual
+1317,human_sound auditory
+1318,language visual
+1319,faces visual
+1320,right_hand visual_words visual
+1321,visual
+1322,language visual_words visual
+1323,right_hand visual
+1324,places right_hand visual
+1325,visual
+1326,auditory
+1327,objects visual
+1328,vertical_checkerboard visual
+1329,language non_human_sound auditory
+1330,visual_words visual non_human_sound auditory
+1331,objects right_hand visual_words visual
+1332,language right_hand visual_words visual
+1333,left_hand visual_words visual
+1334,visual_digits visual_words visual
+1335,language visual_words visual
+1336,non_human_sound auditory
+1337,visual_words visual
+1338,faces right_hand visual
+1339,objects visual non_human_sound auditory
+1340,visual
+1341,visual_words visual
+1342,right_hand visual
+1343,right_hand visual_words visual
+1344,auditory
+1345,language right_hand visual_words visual
+1346,language auditory
+1347,objects visual
+1348,vertical_checkerboard visual
+1349,language right_hand visual_words visual
+1350,objects visual non_human_sound auditory
+1351,visual
+1352,visual
+1353,non_human_sound auditory
+1354,right_hand auditory
+1355,language visual_words visual
+1356,visual
+1357,calculation visual_words visual
+1358,places scramble visual
+1359,calculation auditory
+1360,right_hand visual_words visual
+1361,language human_sound right_hand auditory
+1362,objects right_hand visual
+1363,calculation right_hand auditory
+1364,objects visual auditory
+1365,left_hand visual_words visual
+1366,calculation visual_words visual
+1367,visual_words visual
+1368,right_hand visual
+1369,right_hand auditory
+1370,right_hand visual_words visual
+1371,auditory
+1372,right_hand visual_words visual
+1373,left_hand visual_words visual
+1374,non_human_sound auditory
+1375,language visual_words visual
+1376,calculation visual_words visual
+1377,visual
+1378,auditory
+1379,right_hand visual_words visual
+1380,language auditory
+1381,right_hand auditory
+1382,right_hand visual
+1383,objects visual_words visual
+1384,calculation language visual_words visual
+1385,objects auditory
+1386,objects right_hand visual
+1387,language visual
+1388,vertical_checkerboard visual
+1389,places right_hand visual
+1390,right_hand visual_words visual
+1391,left_hand objects right_hand visual
+1392,visual_words visual
+1393,visual
+1394,visual
+1395,vertical_checkerboard visual
+1396,language auditory
+1397,right_hand visual
+1398,language right_hand visual_words visual
+1399,visual
+1400,right_hand visual_words visual
+1401,objects right_hand visual_words visual
+1402,right_hand visual
+1403,visual
+1404,right_hand visual_words visual
+1405,horizontal_checkerboard visual
+1406,language auditory
+1407,visual
+1408,visual_digits calculation visual_words visual
+1409,vertical_checkerboard visual
+1410,vertical_checkerboard visual
+1411,right_hand visual_words visual
+1412,calculation visual_words visual
+1413,language right_hand auditory
+1414,language human_sound right_hand auditory
+1415,visual
+1416,language right_hand visual_words visual
+1417,right_hand visual_words visual
+1418,calculation auditory
+1419,right_hand visual
+1420,objects visual
+1421,objects visual non_human_sound auditory
+1422,language visual
+1423,places visual
+1424,language visual_words visual
+1425,visual
+1426,faces right_hand visual
+1427,objects visual
+1428,objects visual
+1429,human_sound auditory
+1430,faces visual
+1431,vertical_checkerboard visual
+1432,visual_words visual
+1433,horizontal_checkerboard visual
+1434,right_hand visual_words visual
+1435,objects right_hand visual
+1436,faces right_hand visual
+1437,left_hand auditory
+1438,right_hand
+1439,objects scramble visual
+1440,language human_sound auditory
+1441,visual
+1442,objects visual
+1443,visual
+1444,language auditory
+1445,language right_hand visual_words visual
+1446,scramble visual_words visual
+1447,left_foot visual
+1448,calculation visual_words visual
+1449,left_hand auditory
+1450,right_hand visual_words visual
+1451,visual
+1452,calculation visual_words visual
+1453,non_human_sound auditory
+1454,visual
+1455,visual_words visual
+1456,visual_digits visual_words visual
+1457,language right_hand visual_words visual
+1458,objects visual
+1459,left_hand auditory
+1460,right_hand visual
+1461,horizontal_checkerboard vertical_checkerboard visual
+1462,visual non_human_sound auditory
+1463,language visual_words visual
+1464,objects visual_words visual
+1465,language auditory
+1466,right_hand visual
+1467,right_foot visual
+1468,calculation right_hand auditory
+1469,language human_sound auditory
+1470,language auditory
+1471,horizontal_checkerboard visual
+1472,language right_hand visual_words auditory
+1473,visual
+1474,calculation visual
+1475,right_hand visual
+1476,language visual_words visual
+1477,right_hand auditory
+1478,right_hand visual_words visual
+1479,left_hand auditory
+1480,objects visual
+1481,language visual_words visual
+1482,right_hand auditory
+1483,visual
+1484,objects visual non_human_sound auditory
+1485,language vertical_checkerboard visual_words visual
+1486,objects places right_hand visual
+1487,faces visual
+1488,language right_hand visual_words visual
+1489,visual_words visual
+1490,calculation visual_words visual
+1491,language human_sound auditory
+1492,objects visual_words visual
+1493,visual_words visual
+1494,language visual
+1495,right_hand auditory
+1496,objects visual non_human_sound
+1497,visual
+1498,language human_sound auditory
+1499,places visual
+1500,objects visual
+1501,calculation auditory
+1502,left_hand visual
+1503,right_foot visual
+1504,calculation auditory
+1505,language right_hand visual_words visual
+1506,objects right_hand visual
+1507,right_hand visual_words visual
+1508,auditory
+1509,horizontal_checkerboard visual
+1510,language objects visual
+1511,calculation visual_words visual
+1512,language visual_words visual
+1513,language visual_words visual
+1514,right_hand auditory
+1515,objects visual non_human_sound auditory
+1516,visual_words visual
+1517,language auditory
+1518,visual_words auditory
+1519,language auditory
+1520,left_hand visual
+1521,objects right_hand visual
+1522,right_hand visual_words visual
+1523,right_hand auditory
+1524,faces scramble visual
+1525,objects visual
+1526,language human_sound auditory
+1527,language right_hand visual_words visual
+1528,left_foot visual
+1529,visual
+1530,right_hand visual
+1531,vertical_checkerboard visual
+1532,objects visual
+1533,calculation auditory
+1534,visual_digits visual
+1535,left_hand visual_words visual
+1536,language visual_words visual
+1537,faces objects right_hand visual
+1538,left_hand auditory
+1539,objects right_hand visual_words visual
+1540,visual
+1541,vertical_checkerboard visual
+1542,calculation non_human_sound auditory
+1543,language visual_words visual
+1544,language visual_words visual
+1545,calculation visual_words visual
+1546,visual
+1547,right_hand visual
+1548,left_hand visual_words visual
+1549,visual_words visual non_human_sound auditory
+1550,visual
+1551,objects visual
+1552,language auditory
+1553,faces visual
+1554,visual_words visual
+1555,visual_words visual
+1556,human_sound auditory
+1557,visual
+1558,right_hand visual_words visual
+1559,visual_words visual
+1560,left_hand auditory
+1561,visual
+1562,left_hand visual_words visual
+1563,right_hand visual
+1564,visual_words visual
+1565,language visual_words visual
+1566,non_human_sound auditory
+1567,language visual_words visual
+1568,right_hand visual_words visual
+1569,right_hand auditory
+1570,calculation visual_words visual
+1571,visual_digits visual
+1572,auditory
+1573,left_foot right_foot visual
+1574,visual
+1575,human_sound auditory
+1576,visual non_human_sound
+1577,visual_digits visual
+1578,visual_digits visual saccades
+1579,right_hand visual
+1580,vertical_checkerboard visual
+1581,right_hand auditory
+1582,language right_hand visual_words visual
+1583,objects visual
+1584,right_hand visual_words visual
+1585,right_hand visual_words visual
+1586,vertical_checkerboard visual
+1587,left_hand visual auditory
+1588,left_foot visual
+1589,visual_words visual
+1590,faces right_hand visual
+1591,visual
+1592,right_hand visual
+1593,right_hand visual_words visual
+1594,non_human_sound auditory
+1595,language auditory
+1596,right_hand visual_words visual
+1597,visual_digits visual_words visual
+1598,objects visual non_human_sound auditory
+1599,visual
+1600,visual_digits visual_words visual
+1601,objects visual
+1602,visual_digits calculation visual
+1603,left_hand visual
+1604,language visual_words visual
+1605,calculation right_hand auditory
+1606,right_hand auditory
+1607,left_foot visual
+1608,visual_words visual
+1609,language objects visual_words visual non_human_sound auditory
+1610,right_hand visual_words visual
+1611,horizontal_checkerboard visual
+1612,auditory
+1613,objects right_hand visual_words visual
+1614,right_hand visual_words visual
+1615,left_hand visual_words visual
+1616,auditory
+1617,language visual_words visual
+1618,objects visual non_human_sound
+1619,language human_sound auditory
+1620,horizontal_checkerboard visual
+1621,places visual
+1622,calculation language visual_words visual
+1623,visual_digits visual
+1624,non_human_sound auditory
+1625,language auditory
+1626,right_hand visual_words visual
+1627,visual
+1628,left_hand scramble visual
+1629,non_human_sound auditory
+1630,right_hand visual_words visual
+1631,visual_words visual auditory
+1632,objects visual auditory
+1633,right_hand visual_words visual
+1634,objects visual
+1635,left_hand auditory
+1636,faces visual
+1637,right_hand visual
+1638,auditory
+1639,language visual_words visual
+1640,left_hand auditory
+1641,faces visual
+1642,right_hand auditory
+1643,left_hand visual_words visual
+1644,calculation right_hand auditory
+1645,language visual_words visual
+1646,right_hand visual
+1647,objects visual non_human_sound auditory
+1648,visual
+1649,objects
+1650,visual_words visual
+1651,places visual
+1652,objects visual
+1653,language human_sound auditory
+1654,visual
+1655,visual_digits visual_words visual
+1656,visual saccades
+1657,visual_digits calculation
+1658,left_hand visual_words visual
+1659,language visual_words visual
+1660,auditory
+1661,visual
+1662,left_hand auditory
+1663,objects visual
+1664,right_hand visual
+1665,calculation right_hand auditory
+1666,language
+1667,objects visual
+1668,objects visual
+1669,visual_words visual
+1670,faces visual_words visual
+1671,left_hand visual
+1672,calculation objects right_hand auditory
+1673,objects visual
+1674,vertical_checkerboard visual
+1675,visual
+1676,horizontal_checkerboard visual
+1677,non_human_sound auditory
+1678,language visual_words visual
+1679,right_hand visual_words visual
+1680,language visual_words visual
+1681,language human_sound auditory
+1682,visual saccades
+1683,horizontal_checkerboard visual_words visual
+1684,places visual
+1685,visual
+1686,objects visual non_human_sound auditory
+1687,visual_words visual
+1688,calculation visual_words visual
+1689,language right_hand auditory
+1690,right_foot visual
+1691,visual
+1692,language visual_words visual
+1693,language right_hand auditory
+1694,visual
+1695,right_hand visual_words visual
+1696,calculation visual_words visual
+1697,language auditory
+1698,non_human_sound auditory
+1699,right_hand auditory
+1700,language right_hand visual_words visual
+1701,right_hand visual
+1702,objects right_hand visual_words visual
+1703,calculation visual_words visual
+1704,calculation auditory
+1705,objects visual
+1706,visual
+1707,language right_hand visual_words visual
+1708,right_hand visual non_human_sound auditory
+1709,objects visual non_human_sound auditory
+1710,places visual
+1711,left_hand auditory
+1712,faces scramble visual
+1713,vertical_checkerboard visual
+1714,language auditory
+1715,language visual_words visual
+1716,objects visual
+1717,right_hand visual
+1718,language right_hand visual_words visual
+1719,right_hand visual_words visual
+1720,visual
+1721,right_hand auditory
+1722,right_hand
+1723,language auditory
+1724,language visual_words visual
+1725,objects visual saccades
+1726,auditory
+1727,language right_hand visual_words visual
+1728,left_hand visual_words visual
+1729,left_hand visual
+1730,language human_sound auditory
+1731,scramble visual_words visual
+1732,objects visual_words visual non_human_sound auditory
+1733,visual_digits visual
+1734,objects visual_words visual
+1735,right_hand visual_words visual
+1736,language right_hand visual_words visual
+1737,visual
+1738,language right_hand visual_words visual
+1739,right_foot visual
+1740,visual
+1741,faces right_hand visual
+1742,right_hand visual_words auditory
+1743,vertical_checkerboard visual
+1744,human_sound auditory
+1745,visual
+1746,right_hand visual_words visual
+1747,objects visual
+1748,visual
+1749,left_hand auditory
+1750,calculation auditory
+1751,calculation visual_words visual
+1752,visual
+1753,left_hand visual
+1754,vertical_checkerboard objects visual
+1755,objects visual
+1756,objects visual
+1757,auditory
+1758,right_hand auditory
+1759,visual
+1760,visual_words visual
+1761,language visual_words visual
+1762,non_human_sound auditory
+1763,right_hand auditory
+1764,faces right_hand visual
+1765,visual_words visual
+1766,visual_digits visual
+1767,visual_words visual
+1768,right_hand visual
+1769,calculation visual_words visual
+1770,calculation visual_words visual
+1771,left_hand objects visual_words auditory
+1772,language right_hand visual_words visual
+1773,right_hand visual_words visual
+1774,right_hand visual
+1775,non_human_sound auditory
+1776,language human_sound auditory
+1777,scramble visual
+1778,language objects visual
+1779,right_foot visual
+1780,faces right_hand visual
+1781,objects visual
+1782,visual_words visual
+1783,language right_hand visual_words visual
+1784,visual_words visual
+1785,left_hand auditory
+1786,visual non_human_sound
+1787,objects right_hand visual
+1788,language right_hand visual_words visual
+1789,language human_sound right_hand auditory
+1790,horizontal_checkerboard visual
+1791,language visual_words visual
+1792,language human_sound auditory
+1793,scramble visual
+1794,right_hand visual_words visual auditory
+1795,language visual_words visual
+1796,visual_words visual
+1797,right_hand visual
+1798,visual_words visual
+1799,right_hand visual_words visual
+1800,language visual_words visual
+1801,left_foot language right_foot visual
+1802,auditory
+1803,vertical_checkerboard visual
+1804,language human_sound auditory
+1805,faces objects right_hand visual
+1806,visual auditory
+1807,objects visual
+1808,language visual_words visual
+1809,places visual
+1810,language right_hand auditory
+1811,calculation auditory
+1812,objects right_hand visual
+1813,language visual_words visual
+1814,horizontal_checkerboard visual
+1815,right_hand visual_words visual
+1816,left_hand visual
+1817,left_hand auditory
+1818,objects visual
+1819,left_hand auditory
+1820,objects visual
+1821,objects visual non_human_sound auditory
+1822,visual
+1823,right_hand visual
+1824,language right_hand visual_words visual auditory
+1825,visual_digits calculation visual
+1826,objects visual_words visual non_human_sound auditory
+1827,faces visual
+1828,language right_hand visual_words visual
+1829,language visual_words visual
+1830,left_hand auditory
+1831,non_human_sound auditory
+1832,language visual_words visual
+1833,language objects visual non_human_sound auditory
+1834,right_hand auditory
+1835,language visual_words visual
+1836,calculation visual_words visual
+1837,places right_hand visual
+1838,visual_words visual auditory
+1839,language visual_words visual
+1840,right_hand visual
+1841,human_sound non_human_sound auditory
+1842,language visual_words visual
+1843,left_hand objects visual
+1844,vertical_checkerboard visual
+1845,non_human_sound auditory
+1846,objects scramble visual
+1847,visual
+1848,visual_digits calculation visual
+1849,left_hand visual_words visual
+1850,non_human_sound auditory
+1851,right_hand visual_words visual
+1852,vertical_checkerboard visual
+1853,language human_sound auditory
+1854,right_hand visual
+1855,visual_words visual
+1856,visual_words visual
+1857,language right_hand visual_words visual
+1858,left_hand visual
+1859,calculation auditory
+1860,visual
+1861,language visual_words visual
+1862,right_hand visual_words visual
+1863,calculation right_hand auditory
+1864,objects right_hand visual
+1865,language right_hand auditory
+1866,left_hand visual_words visual
+1867,horizontal_checkerboard visual
+1868,vertical_checkerboard visual
+1869,left_hand right_hand visual_words auditory
+1870,right_hand visual
+1871,language auditory
+1872,right_hand visual
+1873,scramble visual
+1874,language visual_words auditory
+1875,language right_hand visual_words visual
+1876,objects visual
+1877,right_hand visual non_human_sound auditory
+1878,objects visual auditory
+1879,objects right_hand visual_words visual
+1880,language right_hand visual_words visual
+1881,visual
+1882,language auditory
+1883,visual_words visual
+1884,faces right_hand visual
+1885,visual saccades
+1886,right_hand auditory
+1887,right_hand visual
+1888,visual saccades
+1889,faces right_hand visual
+1890,left_hand visual_words visual
+1891,human_sound auditory
+1892,visual
+1893,left_foot visual
+1894,right_hand visual
+1895,visual_digits visual
+1896,visual
+1897,faces visual
+1898,left_hand visual
+1899,visual
+1900,visual_words visual
+1901,places visual
+1902,human_sound auditory
+1903,faces visual
+1904,non_human_sound auditory
+1905,language visual
+1906,language auditory
+1907,objects places right_hand visual
+1908,visual_words visual
+1909,left_foot visual
+1910,calculation non_human_sound auditory
+1911,right_hand auditory
+1912,horizontal_checkerboard visual
+1913,visual_words visual
+1914,visual
+1915,objects visual
+1916,visual_words visual
+1917,right_hand visual_words visual
+1918,right_hand visual
+1919,non_human_sound auditory
+1920,calculation visual_words visual
+1921,horizontal_checkerboard visual
+1922,left_hand auditory
+1923,right_hand auditory
+1924,objects visual
+1925,right_hand visual
+1926,language visual_words visual
+1927,language visual
+1928,human_sound auditory
+1929,right_hand visual_words visual
+1930,language human_sound auditory
+1931,visual_words visual
+1932,language visual_words visual
+1933,left_hand auditory
+1934,language right_hand visual_words visual
+1935,language visual_words visual
+1936,visual
+1937,vertical_checkerboard visual
+1938,visual
+1939,vertical_checkerboard visual
+1940,right_hand auditory
+1941,non_human_sound auditory
+1942,language visual
+1943,right_hand visual
+1944,right_hand visual
+1945,objects visual auditory
+1946,objects visual non_human_sound auditory
+1947,language visual_words visual
+1948,calculation auditory
+1949,places right_hand visual
+1950,language visual_words visual
+1951,calculation right_hand visual_words auditory
+1952,objects visual
+1953,visual_words visual
+1954,vertical_checkerboard visual
+1955,right_hand visual_words visual
+1956,calculation auditory
+1957,faces right_hand visual
+1958,calculation visual
+1959,language visual_words visual
+1960,horizontal_checkerboard visual
+1961,left_hand objects visual
+1962,visual
+1963,language auditory
+1964,left_hand visual_words visual
+1965,right_hand visual_words visual
+1966,right_hand visual
+1967,calculation right_hand auditory
+1968,right_foot
+1969,visual_digits calculation visual
+1970,horizontal_checkerboard visual saccades
