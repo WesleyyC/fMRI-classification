@@ -27,11 +27,11 @@ with tf.device(device):
 
     with tf.variable_scope('conv1'):
         channels = 1; filters = 4; size = 3; stride = 1;
-        X_batch_conv1 = ops.conv3d(X_batch_norm, channels, filters, stride, size, size, size)
+        X_batch_conv1 = ops.conv3d(X_batch_norm, channels, filters, stride, size, size, size, padding='SAME')
 
     with tf.variable_scope('conv1_2'):
         channels = 4; filters = 8; size = 3; stride = 1;
-        X_batch_conv1_2 = ops.conv3d(X_batch_conv1, channels, filters, stride, size, size, size)
+        X_batch_conv1_2 = ops.conv3d(X_batch_conv1, channels, filters, stride, size, size, size, padding='SAME')
 
     with tf.variable_scope('pool1'):
         size = 2; stride = 2;
@@ -43,11 +43,11 @@ with tf.device(device):
 
     with tf.variable_scope('conv2'):
         channels = 8; filters = 16; size = 3; stride = 1;
-        X_batch_conv2 = ops.conv3d(X_batch_norm2, channels, filters, stride, size, size, size)
+        X_batch_conv2 = ops.conv3d(X_batch_norm2, channels, filters, stride, size, size, size, padding='SAME')
 
     with tf.variable_scope('conv2_2'):
         channels = 16; filters = 32; size = 3; stride = 1;
-        X_batch_conv2_2 = ops.conv3d(X_batch_conv2, channels, filters, stride, size, size, size)
+        X_batch_conv2_2 = ops.conv3d(X_batch_conv2, channels, filters, stride, size, size, size, padding='SAME')
 
     with tf.variable_scope('pool2'):
         size = 2; stride = 2;
