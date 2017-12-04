@@ -35,8 +35,11 @@ train_Y = train_Y[test_range:]
 # Model Parameter
 
 label_size = 19
-learning_rate = 0.001
-regularizer_scale = 0.05
+starting_learning_rate = 0.001
+decay_step = 100
+decay_rate = 0.96
+regularizer_scale = 0.0
+dropout_keep = 0.5
 
 # Build NN Graph
 
@@ -49,35 +52,49 @@ training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
 regularizer = tf.contrib.layers.l1_regularizer(scale=regularizer_scale)
 
-kernel_size = 32
-stride = 1
-filter_depth = 5
-filter_height = 5
-filter_width = 5
-pool_size = 2
-pool_stride = pool_size
-conv_layer_1 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, regularizer, 1)
-pool_layer_1 = tf.nn.max_pool3d(conv_layer_1, [1, pool_size, pool_size, pool_size, 1],
-                                [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
+pool_layer_1 = tf.nn.max_pool3d(X_batch, [1, 2, 3, 2, 1],
+                                [1, 2, 3, 2, 1], padding="VALID")
 
-kernel_size = 32
+kernel_size = 128
 stride = 1
-filter_depth = 5
-filter_height = 5
-filter_width = 5
-pool_size = 2
-pool_stride = pool_size
+filter_depth = 2
+filter_height = 3
+filter_width = 2
+conv_layer_1 = ops.conv3d_block(pool_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, None, 1)
+kernel_size = kernel_size
+stride = 2
+filter_depth = 4
+filter_height = 6
+filter_width = 4
 conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, regularizer, 2)
-pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
-                                [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
+                                filter_width, None, 2)
 
-dense_1 = ops.dense_block(pool_layer_2, label_size, regularizer, 1)
+# pool_layer_1 = tf.nn.max_pool3d(conv_layer_2, [1, 2, 3, 2, 1],
+#                                 [1, 2, 3, 2, 1], padding="VALID")
 
-# dense_2 = ops.dense_block(dense_1, label_size, regularizer, 2)
+# kernel_size = 64
+# stride = 1
+# filter_depth = 5
+# filter_height = 5
+# filter_width = 5
+# conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
+#                                 filter_width, regularizer, 2)
 
-logits = dense_1
+# pool_size = 2
+# pool_stride = pool_size
+# pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
+#                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
+#
+# dropout_1 = tf.nn.dropout(conv_layer_2, dropout_keep)
+#
+# dense_1 = ops.dense_block(dropout_1, 2048, regularizer, 1)
+
+dropout_2 = tf.nn.dropout(conv_layer_2, dropout_keep)
+
+dense_2 = ops.dense_block(dropout_2, label_size, regularizer, 2)
+
+logits = dense_2
 
 # Prediction Loss
 
@@ -87,8 +104,11 @@ Y_prediction = tf.round(tf.nn.sigmoid(logits))
 
 cross_entropy = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_batch, logits=logits))
 
-reg_variables = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
-reg_term = tf.contrib.layers.apply_regularization(regularizer, reg_variables)
+if regularizer_scale > 0:
+    reg_variables = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
+    reg_term = tf.contrib.layers.apply_regularization(regularizer, reg_variables)
+else:
+    reg_term = 0
 
 loss = cross_entropy + reg_term
 
@@ -97,8 +117,12 @@ loss = cross_entropy + reg_term
 params = tf.trainable_variables()
 gradients = tf.gradients(loss, params)
 
+global_step = tf.Variable(0, trainable=False)
+learning_rate = tf.train.exponential_decay(starting_learning_rate, global_step,
+                                           decay_step, decay_rate, staircase=True)
+
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
-update_step = optimizer.apply_gradients(zip(gradients, params))
+update_step = optimizer.apply_gradients(zip(gradients, params), global_step=global_step)
 
 # Model Persistence
 saver = tf.train.Saver()
@@ -108,7 +132,7 @@ saver = tf.train.Saver()
 sess.run(tf.global_variables_initializer())
 
 epochs = 300
-batch_size = 32
+batch_size = 64
 report_step = 1000
 saved_mdl_name = 'result.mdl'
 
@@ -163,6 +187,7 @@ if not infer_only:
 print("Generating Validation Submission...")
 
 valid_test_X = np.load('../data/valid_test_X.npy')
+valid_test_X = utils.normalized_data(valid_test_X)
 valid_test_Y = np.zeros([len(valid_test_X), 19])
 
 saver.restore(sess, saved_mdl_name)
