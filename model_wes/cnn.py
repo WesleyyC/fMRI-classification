@@ -55,21 +55,21 @@ training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
 regularizer = tf.contrib.layers.l2_regularizer(scale=regularizer_scale)
 
-noise_layer_1 = ops.gaussian_noise_layer(X_batch, 2.5, training_flag)
+noise_layer_1 = ops.gaussian_noise_layer(X_batch, 2, training_flag)
 
-kernel_size = 128
-stride = 2
-filter_depth = 6
-filter_height = 6
-filter_width = 6
+kernel_size = 64
+stride = 1
+filter_depth = 2
+filter_height = 3
+filter_width = 2
 conv_layer_1 = ops.conv3d_block(noise_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
                                 filter_width, regularizer, 1)
 
 kernel_size = kernel_size
-stride = 3
-filter_depth = 9
-filter_height = 9
-filter_width = 9
+stride = 2
+filter_depth = 4
+filter_height = 6
+filter_width = 4
 conv_layer_2 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
                                 filter_width, regularizer, 2)
 
@@ -78,11 +78,7 @@ pool_stride = pool_size
 pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
-# noise_layer_2 = ops.gaussian_noise_layer(pool_layer_2, .5)
-
-dropout = tf.layers.dropout(conv_layer_2, dropout_keep_proba)
-
-dense = ops.dense_block(dropout, label_size, regularizer, 1)
+dense = ops.dense_block(conv_layer_2, label_size, regularizer, 1)
 
 logit = dense
 
