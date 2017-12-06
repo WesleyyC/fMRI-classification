@@ -43,7 +43,8 @@ def conv3d_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filt
                  layer_no):
     with tf.variable_scope('conv_block_' + str(layer_no)):
         conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, regularizer, 1)
-        relu1 = tf.nn.relu(conv1)
+        alpha = 0.1
+        relu1 = tf.maximum(conv1, alpha * conv1)
     return relu1
 
 
@@ -54,3 +55,8 @@ def dense_block(X_, output_channel, regularizer, layer_no):
         X_dim = reduce(lambda x, y: x * y, X_dim)
         reshape = tf.reshape(X_, [-1, X_dim])
         return tf.layers.dense(reshape, output_channel)
+
+
+def gaussian_noise_layer(input_layer, std, training_flag):
+    noise = tf.random_normal(shape=tf.shape(input_layer), mean=0.0, stddev=std, dtype=tf.float32)
+    return tf.cond(training_flag, lambda: input_layer + noise, lambda :input_layer)

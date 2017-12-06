@@ -15,13 +15,13 @@ infer_only = False
 train_X = np.load('../data/train_X.npy')
 train_Y = np.load('../data/train_binary_Y.npy')
 
-# Process data
+# Process Data
 
 train_X = utils.normalized_data(train_X)
 
 train_X = train_X[:, :, :, :, np.newaxis]
 
-# Shuffle and divide two train/test
+# Shuffle and Divide Two Train/Test
 train_X, train_Y = shuffle(train_X, train_Y)
 sample_number = len(train_X)
 
@@ -35,11 +35,14 @@ train_Y = train_Y[test_range:]
 # Model Parameter
 
 label_size = 19
-starting_learning_rate = 0.001
-decay_step = 100
-decay_rate = 0.96
+
 regularizer_scale = 0.0
-dropout_keep = 0.5
+
+starting_learning_rate = 0.001
+decay_step = 20
+decay_rate = 0.98
+
+dropout_keep_proba = 1
 
 # Build NN Graph
 
@@ -50,59 +53,50 @@ X_batch = tf.placeholder(shape=(None, 26, 31, 23, 1), dtype=tf.float32, name='X_
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
-regularizer = tf.contrib.layers.l1_regularizer(scale=regularizer_scale)
+regularizer = tf.contrib.layers.l2_regularizer(scale=regularizer_scale)
 
-pool_layer_1 = tf.nn.max_pool3d(X_batch, [1, 2, 3, 2, 1],
-                                [1, 2, 3, 2, 1], padding="VALID")
+noise_layer_1 = ops.gaussian_noise_layer(X_batch, 2.5, training_flag)
 
 kernel_size = 128
-stride = 1
-filter_depth = 2
-filter_height = 3
-filter_width = 2
-conv_layer_1 = ops.conv3d_block(pool_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, None, 1)
-kernel_size = kernel_size
 stride = 2
-filter_depth = 4
+filter_depth = 6
 filter_height = 6
-filter_width = 4
-conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, None, 2)
+filter_width = 6
+conv_layer_1 = ops.conv3d_block(noise_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, regularizer, 1)
 
-# pool_layer_1 = tf.nn.max_pool3d(conv_layer_2, [1, 2, 3, 2, 1],
-#                                 [1, 2, 3, 2, 1], padding="VALID")
+kernel_size = kernel_size
+stride = 3
+filter_depth = 9
+filter_height = 9
+filter_width = 9
+conv_layer_2 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, regularizer, 2)
 
-# kernel_size = 64
-# stride = 1
-# filter_depth = 5
-# filter_height = 5
-# filter_width = 5
-# conv_layer_2 = ops.conv3d_block(conv_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
-#                                 filter_width, regularizer, 2)
+pool_size = 2
+pool_stride = pool_size
+pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
+                                [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
 
-# pool_size = 2
-# pool_stride = pool_size
-# pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
-#                                 [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
-#
-# dropout_1 = tf.nn.dropout(conv_layer_2, dropout_keep)
-#
-# dense_1 = ops.dense_block(dropout_1, 2048, regularizer, 1)
+# noise_layer_2 = ops.gaussian_noise_layer(pool_layer_2, .5)
 
-dropout_2 = tf.nn.dropout(conv_layer_2, dropout_keep)
+dropout = tf.layers.dropout(conv_layer_2, dropout_keep_proba)
 
-dense_2 = ops.dense_block(dropout_2, label_size, regularizer, 2)
+dense = ops.dense_block(dropout, label_size, regularizer, 1)
 
-logits = dense_2
+logit = dense
 
 # Prediction Loss
 
-Y_prediction = tf.round(tf.nn.sigmoid(logits))
+Y_prediction = tf.round(tf.nn.sigmoid(logit))
 
 # Training Loss
 
-cross_entropy = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_batch, logits=logits))
+cross_entropy = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_batch, logits=logit))
+
+loss = cross_entropy
+
+# Add Regularization
 
 if regularizer_scale > 0:
     reg_variables = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
@@ -110,7 +104,7 @@ if regularizer_scale > 0:
 else:
     reg_term = 0
 
-loss = cross_entropy + reg_term
+loss = loss + reg_term
 
 # Gradient
 
@@ -125,14 +119,15 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 update_step = optimizer.apply_gradients(zip(gradients, params), global_step=global_step)
 
 # Model Persistence
+
 saver = tf.train.Saver()
 
 # Training
 
 sess.run(tf.global_variables_initializer())
 
-epochs = 300
-batch_size = 64
+epochs = 100
+batch_size = 164
 report_step = 1000
 saved_mdl_name = 'result.mdl'
 
@@ -175,11 +170,10 @@ if not infer_only:
             i = i_end
         print(str.format("Epoch %d test  auc is %f and subset accuracy is %f"
                          % (epoch, float(np.mean(auc_list)), float(np.mean(subset_accuracy_list)))))
-        if np.mean(subset_accuracy_list) > best_subset_accuracy:
+        if np.mean(subset_accuracy_list) >= best_subset_accuracy:
             saver.save(sess, saved_mdl_name)
             best_subset_accuracy = np.mean(subset_accuracy_list)
-            print("Updated best model."
-                  "")
+            print("Updated best model.")
         print("**************************************************************")
 
 # Generate Validation Data
@@ -190,7 +184,8 @@ valid_test_X = np.load('../data/valid_test_X.npy')
 valid_test_X = utils.normalized_data(valid_test_X)
 valid_test_Y = np.zeros([len(valid_test_X), 19])
 
-saver.restore(sess, saved_mdl_name)
+if infer_only:
+    saver.restore(sess, saved_mdl_name)
 
 i = 0
 while i < len(valid_test_X):
