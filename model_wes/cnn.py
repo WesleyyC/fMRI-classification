@@ -9,7 +9,7 @@ import utils
 
 # Mode
 
-infer_only = False
+infer_only = True
 
 # Load data
 train_X = np.load('../data/train_X.npy')
@@ -40,9 +40,7 @@ regularizer_scale = 0.0
 
 starting_learning_rate = 0.001
 decay_step = 20
-decay_rate = 0.98
-
-dropout_keep_proba = 1
+decay_rate = 1
 
 # Build NN Graph
 
@@ -52,35 +50,48 @@ sess = tf.InteractiveSession()
 X_batch = tf.placeholder(shape=(None, 26, 31, 23, 1), dtype=tf.float32, name='X_batch')
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
+keep_prob = tf.placeholder(tf.float32)
+
 
 regularizer = tf.contrib.layers.l2_regularizer(scale=regularizer_scale)
 
-noise_layer_1 = ops.gaussian_noise_layer(X_batch, 2, training_flag)
+noise_layer_1 = ops.gaussian_noise_layer(X_batch, 1, training_flag)
+
+kernel_size = 32
+stride = 1
+filter_depth = 5
+filter_height = 5
+filter_width = 5
+conv_layer_1 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, regularizer, 1, padding="SAME")
+
+pool_size = 2
+pool_stride = pool_size
+pool_layer_1 = tf.nn.max_pool3d(conv_layer_1, [1, pool_size, pool_size, pool_size, 1],
+                                [1, pool_stride, pool_stride, pool_stride, 1], padding="SAME")
 
 kernel_size = 64
 stride = 1
-filter_depth = 2
-filter_height = 3
-filter_width = 2
-conv_layer_1 = ops.conv3d_block(noise_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, regularizer, 1)
-
-kernel_size = kernel_size
-stride = 2
-filter_depth = 4
-filter_height = 6
-filter_width = 4
-conv_layer_2 = ops.conv3d_block(X_batch, training_flag, kernel_size, stride, filter_depth, filter_height,
-                                filter_width, regularizer, 2)
+filter_depth = 5
+filter_height = 5
+filter_width = 5
+conv_layer_2 = ops.conv3d_block(pool_layer_1, training_flag, kernel_size, stride, filter_depth, filter_height,
+                                filter_width, regularizer, 2, padding="SAME")
 
 pool_size = 2
 pool_stride = pool_size
 pool_layer_2 = tf.nn.max_pool3d(conv_layer_2, [1, pool_size, pool_size, pool_size, 1],
-                                [1, pool_stride, pool_stride, pool_stride, 1], padding="VALID")
+                                [1, pool_stride, pool_stride, pool_stride, 1], padding="SAME")
 
-dense = ops.dense_block(conv_layer_2, label_size, regularizer, 1)
+dense_1 = ops.dense_block(pool_layer_2, 1024, regularizer, 1)
 
-logit = dense
+dense_1 = tf.nn.relu(dense_1)
+
+dense_1 = tf.nn.dropout(dense_1, keep_prob)
+
+dense_2 = tf.layers.dense(dense_1, 19)
+
+logit = dense_2
 
 # Prediction Loss
 
@@ -123,7 +134,7 @@ saver = tf.train.Saver()
 sess.run(tf.global_variables_initializer())
 
 epochs = 100
-batch_size = 164
+batch_size = 64
 report_step = 1000
 saved_mdl_name = 'result.mdl'
 
@@ -143,6 +154,7 @@ if not infer_only:
                                               feed_dict={
                                                   X_batch: train_X[i:i_end],
                                                   Y_batch: train_Y[i:i_end],
+                                                  keep_prob: 0.5,
                                                   training_flag: True})
             if i > i_report:
                 auc = roc_auc_score(train_Y[i:i_end], report_Y_prediction, average='micro')
@@ -160,6 +172,7 @@ if not infer_only:
             report_Y_prediction = sess.run(Y_prediction,
                                            feed_dict={
                                                X_batch: test_X[i:i_end],
+                                               keep_prob: 1,
                                                training_flag: False})
             auc_list.append(roc_auc_score(test_Y[i:i_end], report_Y_prediction, average='micro'))
             subset_accuracy_list.append(accuracy_score(test_Y[i:i_end], report_Y_prediction))
@@ -189,6 +202,7 @@ while i < len(valid_test_X):
     valid_Y_prediction = sess.run(Y_prediction,
                                   feed_dict={
                                       X_batch: valid_test_X[i:i_end, :, :, :, np.newaxis],
+                                      keep_prob: 1,
                                       training_flag: False})
     valid_test_Y[i:i_end] = valid_Y_prediction
     i = i_end

@@ -27,23 +27,11 @@ def conv2d(input_, output_channels, stride, filter_depth, filter_height, layer_n
         return tf.nn.bias_add(conv, b)
 
 
-def conv3d_res_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filter_height, filter_width, layer_no):
-    with tf.variable_scope('conv_block_' + str(layer_no)):
-        conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, 1)
-        bn1 = tf.layers.batch_normalization(conv1, training=training_flag)
-        relu1 = tf.nn.relu(bn1)
-        conv2 = conv3d(relu1, kernel_size, conv_stride, filter_depth, filter_height, filter_width, 2)
-        bn2 = tf.layers.batch_normalization(conv2, training=training_flag)
-        relu2 = tf.nn.relu(bn2)
-        res = X_ + relu2
-    return res
-
-
 def conv3d_block(X_, training_flag, kernel_size, conv_stride, filter_depth, filter_height, filter_width, regularizer,
-                 layer_no):
+                 layer_no, padding="SAME"):
     with tf.variable_scope('conv_block_' + str(layer_no)):
-        conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, regularizer, 1)
-        alpha = 0.1
+        conv1 = conv3d(X_, kernel_size, conv_stride, filter_depth, filter_height, filter_width, regularizer, 1, padding=padding)
+        alpha = 0
         relu1 = tf.maximum(conv1, alpha * conv1)
     return relu1
 

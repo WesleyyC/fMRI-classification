@@ -33,9 +33,9 @@ train_Y = train_Y[test_range:]
 # Model Parameter
 
 label_size = 19
-starting_learning_rate = 0.001
-decay_step = 100
-decay_rate = 0.96
+starting_learning_rate = 0.005
+decay_step = 10
+decay_rate = 0.95
 
 # Build NN Graph
 
@@ -46,34 +46,44 @@ X_batch = tf.placeholder(shape=(None, 26, 31, 23), dtype=tf.float32, name='X_bat
 Y_batch = tf.placeholder(shape=(None, 19), dtype=tf.float32, name='Y_batch')
 training_flag = tf.placeholder(dtype=tf.bool, name='training_flag')
 
-kernel_size = 1
-stride = 1
+noise_layer_1 = ops.gaussian_noise_layer(X_batch, 0.5, training_flag)
+
+kernel_size = 524
+stride = 2
 filter_depth = 4
 filter_height = 4
-dropout_keep_rate = 1
 
-conv_layer_1 = ops.conv2d(X_batch, kernel_size, stride, filter_depth, filter_height, 1)
-conv_layer_2 = ops.conv2d(conv_layer_1, kernel_size, stride, filter_depth, filter_height, 2)
+conv_layer_1 = ops.conv2d(noise_layer_1, kernel_size, stride, filter_depth, filter_height, 1, padding="VALID")
+conv_layer_3 = ops.conv2d(tf.transpose(noise_layer_1, [0, 1, 3, 2]), kernel_size, stride, filter_depth, filter_height,
+                          3, padding="VALID")
+conv_layer_5 = ops.conv2d(tf.transpose(noise_layer_1, [0, 2, 3, 1]), kernel_size, stride, filter_depth, filter_height,
+                          5, padding="VALID")
 
-dropout_layer_1 = tf.nn.dropout(conv_layer_2, dropout_keep_rate)
+kernel_size = 524
+stride = 1
+filter_depth = 3
+filter_height = 3
 
-conv_layer_3 = ops.conv2d(tf.transpose(X_batch, [0, 1, 3, 2]), kernel_size, stride, filter_depth, filter_height, 3)
-conv_layer_4 = ops.conv2d(conv_layer_3, kernel_size, stride, filter_depth, filter_height, 4)
+conv_layer_2 = ops.conv2d(conv_layer_1, kernel_size, stride, filter_depth, filter_height, 2, padding="VALID")
+conv_layer_4 = ops.conv2d(conv_layer_3, kernel_size, stride, filter_depth, filter_height, 4, padding="VALID")
+conv_layer_6 = ops.conv2d(conv_layer_5, kernel_size, stride, filter_depth, filter_height, 6, padding="VALID")
 
-dropout_layer_2 = tf.nn.dropout(conv_layer_4, dropout_keep_rate)
+kernel_size = 524
+stride = 1
+filter_depth = 3
+filter_height = 3
 
-conv_layer_5 = ops.conv2d(tf.transpose(X_batch, [0, 2, 3, 1]), kernel_size, stride, filter_depth, filter_height, 5)
-conv_layer_6 = ops.conv2d(conv_layer_3, kernel_size, stride, filter_depth, filter_height, 6)
+conv_layer_7 = ops.conv2d(conv_layer_1, kernel_size, stride, filter_depth, filter_height, 7, padding="VALID")
+conv_layer_8 = ops.conv2d(conv_layer_3, kernel_size, stride, filter_depth, filter_height, 8, padding="VALID")
+conv_layer_9 = ops.conv2d(conv_layer_5, kernel_size, stride, filter_depth, filter_height, 9, padding="VALID")
 
-dropout_layer_3 = tf.nn.dropout(conv_layer_6, dropout_keep_rate)
+dense_1 = ops.dense_block(conv_layer_7, label_size, None, 1)
+dense_2 = ops.dense_block(conv_layer_8, label_size, None, 2)
+dense_3 = ops.dense_block(conv_layer_9, label_size, None, 3)
 
-dense_1 = ops.dense_block(dropout_layer_1, label_size, None, 1)
-dense_2 = ops.dense_block(dropout_layer_2, label_size, None, 2)
-dense_3 = ops.dense_block(dropout_layer_3, label_size, None, 3)
+dense = tf.concat([dense_1, dense_2, dense_3], axis=-1)
 
-dense = tf.layers.dense(tf.concat([dense_1, dense_2, dense_3], axis=-1), 19)
-
-logits = dense
+logits = tf.layers.dense(dense, 19)
 
 # Prediction Loss
 
@@ -105,7 +115,7 @@ saver = tf.train.Saver()
 sess.run(tf.global_variables_initializer())
 
 epochs = 1000
-batch_size = 32
+batch_size = 512
 report_step = 1000
 saved_mdl_name = 'result.mdl'
 
