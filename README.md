@@ -1,8 +1,6 @@
-# Kaggle-fMRI
+# fMRI Classification
 
-Kaggle Code Repo for CS 446 Final Project
+Multi-Class Classification on fMRI data for different body activiies
 
-[Subset Accuracy](https://www.kaggle.com/c/cs446-fa17)
-
-[Micro-averaged AUC Competition](https://www.kaggle.com/c/cs446-fa17b)
+The final model is implemented in Tensorflow with layers of 3D convolution, fully connected, and dropout etc.
 
